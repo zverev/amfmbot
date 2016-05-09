@@ -1,7 +1,10 @@
 [{
-    "id": "rockfm"
+    "id": "rockfm",
+    "freq": "95.2"
 }, {
-    "id": "ultra"
+    "id": "ultra",
+    "freq": null
 }, {
-    "id": "montecarlo"
+    "id": "montecarlo",
+    "freq": "102.1"
 }]
