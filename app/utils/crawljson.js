@@ -1,17 +1,14 @@
+'use strict';
+
 var request = require('request');
 
-var url = 'http://radiopleer.com/info/rock.txt';
-
-module.exports = function(options) {
+module.exports = function(url, parser) {
     return new Promise(function(resolve, reject) {
         request(url, function(error, response, body) {
             if (!error && response.statusCode == 200) {
                 try {
                     var json = JSON.parse(response.body);
-                    resolve({
-                        artist: json.artist,
-                        song: json.song
-                    });
+                    resolve(parser(json));
                 } catch (e) {
                     reject('parse error');
                 }
