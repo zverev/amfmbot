@@ -38,6 +38,19 @@
         }
     }
 }, {
+    "id": "nashe",
+    "name": "Наше Радио",
+    "reg": "(nashe)|(наше)",
+    "freq": 101.7,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://radiopleer.com/info/nashe.txt",
+            "artistKey": "artist",
+            "songKey": "song"
+        }
+    }
+}, {
     "id": "montecarlo",
     "freq": 102.1,
     "name": "Монте-Карло",
