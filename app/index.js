@@ -33,6 +33,7 @@ bot.on('text', function(msg) {
     } catch (e) {
         if (e.code === 'MODULE_NOT_FOUND') {
             // TODO: handle an error
+            bot.sendMessage(fromId, 'parse error');
         }
     }
     if (crawler) {
@@ -40,6 +41,7 @@ bot.on('text', function(msg) {
             bot.sendMessage(fromId, createResponseString(station, resolved));
         }, function() {
             // TODO: handle an error
+            bot.sendMessage(fromId, 'parse error');
         });
     }
 });
