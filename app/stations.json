@@ -1,17 +1,4 @@
 [{
-    "id": "rockfm",
-    "name": "Rock FM",
-    "reg": "(rock)|(рок)",
-    "freq": 95.2,
-    "crawler": {
-        "type": "json",
-        "args": {
-            "url": "http://radiopleer.com/info/rock.txt",
-            "artistKey": "artist",
-            "songKey": "song"
-        }
-    }
-}, {
     "id": "ultra",
     "freq": null,
     "name": "ULTRA",
@@ -20,6 +7,19 @@
         "type": "json",
         "args": {
             "url": "http://radiopleer.com/info/ultra.txt",
+            "artistKey": "artist",
+            "songKey": "song"
+        }
+    }
+}, {
+    "id": "rockfm",
+    "name": "Rock FM",
+    "reg": "(rock)|(рок)",
+    "freq": 95.2,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://radiopleer.com/info/rock.txt",
             "artistKey": "artist",
             "songKey": "song"
         }
@@ -74,6 +74,19 @@
             "url": "http://www.maximum.ru/currenttrack.aspx?station=maximum",
             "artistKey": "Current.Artist",
             "songKey": "Current.Song"
+        }
+    }
+}, {
+    "id": "energy",
+    "freq": 104.2,
+    "name": "Energy",
+    "reg": "(energy)|(nrj)|(эн[еэ]рджи)",
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://www.energyfm.ru/api/radiostation/getTitleBroadcast/",
+            "artistKey": "short.titleExecutor",
+            "songKey": "short.titleTrack"
         }
     }
 }]
