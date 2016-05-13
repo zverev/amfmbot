@@ -1,5 +1,7 @@
 [{
     "id": "rockfm",
+    "name": "Rock FM",
+    "reg": "(rock)|(рок)",
     "freq": 95.2,
     "crawler": {
         "type": "json",
@@ -12,6 +14,8 @@
 }, {
     "id": "ultra",
     "freq": null,
+    "name": "ULTRA",
+    "reg": "(ultra)|(ультра)",
     "crawler": {
         "type": "json",
         "args": {
@@ -22,6 +26,8 @@
     }
 }, {
     "id": "dfm",
+    "name": "DFM",
+    "reg": "(dfm)",
     "freq": 101.2,
     "crawler": {
         "type": "json",
@@ -34,6 +40,8 @@
 }, {
     "id": "montecarlo",
     "freq": 102.1,
+    "name": "Монте-Карло",
+    "reg": "(monte[\\s-]?carlo)|(монте[\\s-]?карло)",
     "crawler": {
         "type": "json",
         "args": {
@@ -45,6 +53,8 @@
 }, {
     "id": "maximum",
     "freq": 103.7,
+    "name": "Maximum",
+    "reg": "(maximum)|(максимум)",
     "crawler": {
         "type": "json",
         "args": {
