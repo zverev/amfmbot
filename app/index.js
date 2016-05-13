@@ -25,16 +25,19 @@ bot.onText(/\/([a-z]+)/, function(msg, match) {
     });
 
     if (stationsIds.indexOf(requestedStation) + 1) {
+        let station = stations.find(function (station) {
+            return station.id === requestedStation;
+        });
         let crawler;
         try {
-            crawler = require(`./crawlers/${requestedStation}.js`);
+            crawler = require(`./crawlers/${station.crawler.type}Crawler.js`);
         } catch (e) {
             if (e.code === 'MODULE_NOT_FOUND') {
                 // TODO: handle an error
             }
         }
         if (crawler) {
-            crawler().then(function (resolved) {
+            crawler.call(null, station.crawler.args).then(function (resolved) {
                 bot.sendMessage(fromId, createResponseString(resolved));
             }, function () {
                 // TODO: handle an error

@@ -1,16 +1,56 @@
 [{
     "id": "rockfm",
-    "freq": 95.2
+    "freq": 95.2,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://radiopleer.com/info/rock.txt",
+            "artistKey": "artist",
+            "songKey": "song"
+        }
+    }
 }, {
     "id": "ultra",
-    "freq": null
+    "freq": null,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://radiopleer.com/info/ultra.txt",
+            "artistKey": "artist",
+            "songKey": "song"
+        }
+    }
 }, {
     "id": "dfm",
-    "freq": 101.2
+    "freq": 101.2,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://www.dfm.ru/currenttrack.aspx?station=dfm",
+            "artistKey": "Current.Artist",
+            "songKey": "Current.Song"
+        }
+    }
 }, {
     "id": "montecarlo",
-    "freq": 102.1
+    "freq": 102.1,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://montecarlo.ru/currenttrack.asp?station=montecarlo",
+            "artistKey": "Current.Artist",
+            "songKey": "Current.Song"
+        }
+    }
 }, {
     "id": "maximum",
-    "freq": 103.7
+    "freq": 103.7,
+    "crawler": {
+        "type": "json",
+        "args": {
+            "url": "http://www.maximum.ru/currenttrack.aspx?station=maximum",
+            "artistKey": "Current.Artist",
+            "songKey": "Current.Song"
+        }
+    }
 }]
