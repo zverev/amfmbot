@@ -3,27 +3,20 @@
 const config = require('./config.js');
 const resolveTrack = require('./resolveTrack.js');
 
-let TelegramBot = require('node-telegram-bot-api');
+var tg = require('telegram-node-bot')(config.telegram.token)
 
-let bot = new TelegramBot(config.telegram.token, {
-    polling: true
+tg.router
+    .when(['abuse'], 'AbuseController')
+    .otherwise('StationController');
+
+tg.controller('AbuseController', ($) => {
+    $.sendMessage('abuse accepted');
 });
 
-bot.onText(/\/abuse/, function(msg, match) {
-    let fromId = msg.from.id;
-    bot.sendMessage(fromId, 'abuse accepted').then(null, function() {
-        console.log('error delivering message')
-    })
-});
-
-bot.on('text', function(msg) {
-    let fromId = msg.from.id;
-
-    resolveTrack(msg.text).then(function (responseMessage) {
-        bot.sendMessage(fromId, responseMessage);
-    }, function (errcode) {
-        debugger;
-        var errorMessage = config.messages[errcode];
-        bot.sendMessage(fromId, errorMessage || '_error_');
+tg.controller('StationController', ($) => {
+    resolveTrack($.message.text).then(responseMessage => {
+        $.sendMessage(responseMessage);
+    }, errcode => {
+        $.sendMessage(config.messages[errcode] || '_error_');
     });
 });
