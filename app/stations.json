@@ -12,6 +12,16 @@
         }
     }
 }, {
+    "id": "radiorossii",
+    "freq": 66.44,
+    "name": "Радио России",
+    "crawler": null
+}, {
+    "id": "nashepodmoskovie",
+    "freq": 68.84,
+    "name": "Наше Подмосковье",
+    "crawler": null
+}, {
     "id": "rockfm",
     "name": "Rock FM",
     "reg": "(rock)|(рок)",
