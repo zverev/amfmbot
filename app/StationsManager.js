@@ -7,8 +7,9 @@ module.exports = class StationsManager {
 
     find (text) {
         return this._stations.find(function (station) {
+            var reg = new RegExp(station.reg || station.name, 'gi');
             if (
-                text.match(new RegExp(station.reg, 'gi')) ||
+                text.match(reg) ||
                 text.trim() == station.freq
             ) {
                 return true;
