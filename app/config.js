@@ -20,5 +20,11 @@ for (let i = 0; i < requiredEnvVars.length; i++) {
 module.exports = {
     telegram: {
         token: envs.amfmbotTelegramToken
+    },
+    messages: {
+        notfound: 'station not found',
+        notsupported: 'station not supported',
+        parseerror: 'parse error',
+        crawlernotfound: 'internal error'
     }
 };
