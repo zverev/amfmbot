@@ -24,6 +24,12 @@ bot.on('text', function(msg) {
     let station = stationsManager.find(msg.text);
 
     if (!station) {
+        bot.sendMessage(fromId, 'station not found');
+        return;
+    }
+
+    if (!station.crawler) {
+        bot.sendMessage(fromId, 'station not supported');
         return;
     }
 
