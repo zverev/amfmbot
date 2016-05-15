@@ -4,7 +4,10 @@ const camelcase = require('camelcase');
 
 let env = process.env;
 
-let requiredEnvVars = ['AMFMBOT_TELEGRAM_TOKEN'];
+let requiredEnvVars = [
+    'AMFMBOT_TELEGRAM_TOKEN',
+    'OPENSHIFT_MONGODB_DB_URL'
+];
 
 let envs = {};
 for (let i = 0; i < requiredEnvVars.length; i++) {
@@ -26,5 +29,8 @@ module.exports = {
         notsupported: 'station not supported',
         parseerror: 'parse error',
         crawlernotfound: 'internal error'
+    },
+    mongodb: {
+        url: envs.openshiftMongodbDbUrl
     }
 };
