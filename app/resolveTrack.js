@@ -7,7 +7,7 @@ let stationsManager = new StationsManager(stations);
 
 module.exports = function(userMessage) {
     return new Promise(function (resolve, reject) {
-        debugger;
+
         let station = stationsManager.find(userMessage);
 
         if (!station) {

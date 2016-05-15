@@ -1,22 +1,25 @@
 'use strict';
 
+const initTelegramCommands = require('./initTelegramCommands.js');
+const ensureBotUser = require('./ensureBotUser.js');
+const mongoose = require('./mongoose.js');
 const config = require('./config.js');
-const resolveTrack = require('./resolveTrack.js');
 
-var tg = require('telegram-node-bot')(config.telegram.token)
+let tg = require('telegram-node-bot')(config.telegram.token);
 
-tg.router
-    .when(['abuse'], 'AbuseController')
-    .otherwise('StationController');
-
-tg.controller('AbuseController', ($) => {
-    $.sendMessage('abuse accepted');
-});
-
-tg.controller('StationController', ($) => {
-    resolveTrack($.message.text).then(responseMessage => {
-        $.sendMessage(responseMessage);
-    }, errcode => {
-        $.sendMessage(config.messages[errcode] || '_error_');
+Promise.resolve(true)
+    .then(function () {
+        return ensureBotUser(tg);
+    })
+    .then(function () {
+        initTelegramCommands(tg);
+    })
+    .then(function () {
+        console.log('ready!');
+    }, function (err) {
+        console.error(err.message);
+        mongoose.disconnect(function () {
+            console.log('disconnected');
+            process.exit(228);
+        });
     });
-});
